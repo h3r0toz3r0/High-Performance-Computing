@@ -1,0 +1,24 @@
+Title
+Readme for Question 2: Author Distribution in CUDA
+
+Description
+This program utilizes 1 GPU with CUDA to count the number of co-authors per unique author. It then prints out the author(s) with the largest number of co-authors.
+This program also sorts all author's by number of co-authors to create a histogram distribution cart with the number of authors on the x-axis and number of co-authors on the y-axis.
+
+Usage
+Turn on or off debug with:
+        0   Print histogram
+        1   Print file lines to ensure readability of file
+        2   Print summation of coauthors per author
+        3   Print max co-authors with respective author and execution time
+Change the file name on line 74. Note, the file given must only have the data within in (no comments or additional statements).
+
+nvcc q2.cu -o q2
+srun --pty --nodes 1 --job-name=interactive --partition=gpu --reservation=EECE5640 --gres=gpu:1 ./q2
+
+Environment
+I ran this program on the Discovery Cluster.
+
+Testing
+For testing this program, I turned debug on (#DEFINE DEBUG true). 
+I then manually counted various author's co-authors and checked the values with the printed values.

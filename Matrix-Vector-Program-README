@@ -1,0 +1,20 @@
+Title
+Readme for Question 4: OpenMP Matrix-Vector Multiplication
+
+Description
+This program utilizes OpenMP to parallelize the workload across threads. It performs a matrix-vector multiplication utilizing OpenMP for reduction in the matrix_vector_multiply() function.
+
+Usage
+To change size of the matrix, change the number on line 15 for MATRIX_SIZE.
+To change the randomization of the matrix and vector initialization numbers, change lines 81 and 85.
+
+g++ -fopenmp q4.cpp -o <filename>
+./<filename>
+
+Environment
+I ran this program on the COE server. Specs provided in the homework write up.
+
+Testing
+For testing this program, I turned debug on (#DEFINE DEBUG true). 
+This prints the first row of the matrix and the vector. 
+Then I calculated the first value of the matrix-vector multiply manually to ensure this was the same value being printed.

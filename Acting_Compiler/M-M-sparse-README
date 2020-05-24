@@ -1,0 +1,35 @@
+Title
+Readme for M-M Space: Sparce Matrix-Matrix Multiplication Optimization
+
+Description
+This program utilizes two methods to improve the sparse M-M program.
+First - it utilizes OMP to parallelize the for loop. It uses the following omp commands:
+    #pragma omp parallel shared(a,b,c) private(i,j,k) 
+    #pragma omp for  schedule(static)
+Second - it reorders the j and k for loops to optimize the cache. 
+    The k index on the inner-most loop causes cache misses in matrix b every iteration
+Originally, I tried to convert the arrays into priority queues so that only values 
+(with respective row and column) were present, eliminating the space used by zeros. 
+However, when I did this, the time to complete increased about 5 times to initialize 
+these new queues. Right now it has the same solution as the MM program. The space needs to
+be decreased for this program so that the zeros are not taking up space - which will speed up
+the program. However, my implementation did not successfully do this.
+
+Usage
+gcc -fopenmp <filename>.c -o <filename>
+./<filename>
+    OR 
+chmod u+x testing-sparse.sh
+./testing-sparse.sh
+
+Environment
+I ran this program on the COE server. 
+
+Testing
+I wrote a bash script called "testing-sparse.sh" that iterated through 
+the program (both optimized and original) 5 times. 
+Next I averaged the time to complete the loop over the 5 iterations.
+
+Results
+Average time to complete for original code (milliseconds)   =   942.894
+Average time to complete for optimized code (milliseconds)  =   90.904

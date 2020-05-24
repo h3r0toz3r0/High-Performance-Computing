@@ -1,0 +1,45 @@
+Title
+Readme for Question 1: Dining Philosopher's Problem
+
+Description
+This program provides a solution to the Dining Philosopher's Problem. 
+Philosophers are implemented as threads and forks are implemented as semophores. 
+This program utilizes pthreads to synchonize between eating and thinking. 
+The program prints 10 iterations of states of the table.
+
+Usage
+To change number of philosophers - change the value of the variable num_philosophers on line 38. This can be any number (odd or even).
+
+gcc -std=c99 -lpthread Q1.c -o <filename>
+./<filename>
+
+Environment
+I ran this program on the COE server.
+
+Testing
+I tested this code by allowing it to fully run at 5, 6, 7 and 11 philosophers. The program completes 10 interations of table sets each run. 
+An example of the output printed is below:
+	Forks to the left and right of Philosopher 4 are in use
+	Philosopher 3 stopped thinking
+	Philosopher 5 stopped thinking
+	Philosopher 1 stopped eating
+	Forks to the left and right of Philosopher 1 are free
+	Philosopher 1 started thinking
+	Philosopher 2 started eating
+	Forks to the left and right of Philosopher 2 are in use
+	Philosopher 1 stopped thinking
+	Philosopher 2 stopped eating
+	Forks to the left and right of Philosopher 2 are free
+	Philosopher 2 started thinking
+	Philosopher 1 started eating
+	Forks to the left and right of Philosopher 1 are in use
+	Philosopher 4 stopped eating
+	Forks to the left and right of Philosopher 4 are free
+	Philosopher 4 started thinking
+	Philosopher 5 started eating
+	Forks to the left and right of Philosopher 5 are in use
+	Philosopher 3 started eating
+	Forks to the left and right of Philosopher 3 are in use
+Each table state prints out the current action of the philosopher (thinking or eating) and which forks are being used/which forks were finished being used.
+I ensured that for 10 iterations of each number of philosophers no two forks were being used at the same time and each philosopher had time to eat. 
+The eat time was randomized for each philosopher. 

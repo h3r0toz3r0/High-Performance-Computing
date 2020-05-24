@@ -1,0 +1,27 @@
+Title
+Readme for Question 2: Linux semaphores and posix pthreads to count numbers divisible by 3 or 5
+
+Description
+This program initialized an array of numbers between 0 and 5000.
+It then utilized pthreads to parallize the workload and semaphores to sync the work.
+The program ascended the array at different points to locate numbers divisible by 3 or 5.
+All numbers identified updated the count by one and the numbers[] at their location.
+Count and the numbers found were printed at the end.
+
+Usage
+To change size of the largest integer, change line 17.
+To change number of threads, change line 16.
+
+g++ -std=c++11 -lpthread q2.cpp -o <filename>
+./<filename>
+
+Environment
+I ran this program on the COE server. 
+
+Testing
+For testing this program, I turned debug on (#DEFINE DEBUG true). 
+This debug printed all "frontier" values.
+The frontier values explicitly showed which portion of the array still needed to be worked on.
+Each thread would chose the first value in the frontier and pop it off.
+This prevented other threads from doing work on the same portion of the array.
+Next, I looked at the first 50 numbers and last 50 numbers printed, ensuring they were divisible by 3 and/or 5.

@@ -1,0 +1,29 @@
+Title
+Readme for M-M: Matrix-Matrix Multiplication Optimization
+
+Description
+This program utilizes two methods to improve M-M program.
+First - it utilizes OMP to parallelize the for loop. It uses the following omp commands:
+    #pragma omp parallel shared(a,b,c) private(i,j,k) 
+    #pragma omp for  schedule(static)
+Second - it reorders the j and k for loops to optimize the cache. 
+    The k index on the inner-most loop causes cache misses in matrix b every iteration
+
+Usage
+gcc -fopenmp <filename>.c -o <filename>
+./<filename>
+    OR 
+chmod u+x testing-MM.sh
+./testing-MM.sh
+
+Environment
+I ran this program on the COE server. 
+
+Testing
+I wrote a bash script called "testing-MM.sh" that iterated through 
+the program (both optimized and original) 5 times. 
+Next I averaged the time to complete the loop over the 5 iterations.
+
+Results
+Average time to complete for original code (milliseconds)   =   915.662
+Average time to complete for optimized code (milliseconds)  =   88.756

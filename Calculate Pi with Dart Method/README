@@ -1,0 +1,23 @@
+Title
+Readme for Question 1: Calculate Pi using Dart Method
+
+Description
+This program utilizes MPI to calculate pi with the dart method on the Discovery Cluster.
+The dart method works by randomly throwing darts onto a board, and counting the number that land within the unit circle.
+The number within the unit circle are used to calculate pi.
+
+Usage
+Turn on or off debug with macro 1 = true, 0 = false
+Change number of darts or rounds in command line
+Change number of tasks in the srun command "tasks-per-node=__"
+
+mpicc q1.c -o q1
+srun --pty --export=ALL --nodes=1 --tasks-per-node=3 mpirun --mca btl_base_warn_component_unused 0  q1 <num_of_rounds> <number_of_darts>
+
+Environment
+I ran this program on the Discovery Cluster.
+
+Testing
+For testing this program, I turned debug on (#DEFINE DEBUG true). 
+This prints out the tasks working.
+Next, I ran this over different dart values and observed the calculated pi value change.

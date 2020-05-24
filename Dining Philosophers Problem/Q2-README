@@ -1,0 +1,17 @@
+Title
+Readme for Question 2: Prime Number Calculator
+
+Description
+This program prints out all prime numbers associated with the integer given.
+It utilizes pthreads to run this program in parallel.
+It takes two user inputs - number of threads and integer. The number of threads sets how many pthreads will be utilized and the integer is the largest number searching for primes
+
+Usage
+gcc -std=c99 -lpthread Q2.c -o <filename>
+./<filename> <num_of_threads> <largest_num>
+
+Environment
+I ran this program on the COE server.
+
+Testing
+Part B explains how this code was tested.
